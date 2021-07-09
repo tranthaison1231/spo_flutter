@@ -1,0 +1,45 @@
+name: spo
+description: A flutter application about sport.
+publish_to: 'none'
+version: 1.0.0+1
+environment:
+  sdk: '>=2.7.0 <3.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  supabase: ^0.0.1-dev.27
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_native_splash: ^1.2.0
+  flutter_launcher_icons: ^0.9.0
+dependency_overrides:
+  args: '2.1.1'
+flutter_native_splash:
+  color: '#ffffff'
+  color_dark: '#1a1a1a'
+  image: assets/images/logo.png
+  image_dark: assets/images/logo.png
+  android: true
+  ios: true
+flutter_icons:
+  android: launcher_icon
+  ios: true
+  image_path: assets/images/logo.png
+  remove_alpha_ios: true
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icons/
+    - assets/images/
+  fonts:
+    - family: Poppins-Bold
+      fonts:
+        - asset: assets/fonts/Poppins-Bold.otf
+    - family: Poppins-Medium
+      fonts:
+        - asset: assets/fonts/Poppins-Medium.otf
+    - family: Poppins-Thin
+      fonts:
+        - asset: assets/fonts/Poppins-Thin.otf
