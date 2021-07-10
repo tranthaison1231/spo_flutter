@@ -14,6 +14,7 @@ dev_dependencies:
     sdk: flutter
   flutter_native_splash: ^1.2.0
   flutter_launcher_icons: ^0.9.0
+  lints: ^1.0.1
 dependency_overrides:
   args: '2.1.1'
 flutter_native_splash:
@@ -37,6 +38,9 @@ flutter:
     - family: Poppins-Bold
       fonts:
         - asset: assets/fonts/Poppins-Bold.otf
+    - family: Poppins-Regular
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.otf
     - family: Poppins-Medium
       fonts:
         - asset: assets/fonts/Poppins-Medium.otf
