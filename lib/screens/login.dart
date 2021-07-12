@@ -21,7 +21,6 @@ class Login extends StatelessWidget {
                   children: [
                     FormBuilder(
                       key: _formKey,
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
