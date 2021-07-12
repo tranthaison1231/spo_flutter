@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:spo/screens/signup.dart';
-import 'package:spo/screens/sport_selector.dart';
 import 'package:spo/shared/utils/theme.dart';
 
 void main() {
@@ -13,11 +12,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SportSelector(),
+      home: SignUp(),
       theme: ThemeData(
           fontFamily: 'Poppins-Regular',
-          primarySwatch: Palette.primaryColor,
+          primarySwatch: Palette.primary,
           textTheme: textTheme,
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            backgroundColor: Palette.secondary,
+          ),
+          bottomAppBarTheme: BottomAppBarTheme(
+            shape: CircularNotchedRectangle(),
+          ),
           inputDecorationTheme: InputDecorationTheme(
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
           ),

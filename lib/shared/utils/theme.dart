@@ -21,8 +21,10 @@ MaterialColor createMaterialColor(Color color) {
 }
 
 class Palette {
-  static final MaterialColor primaryColor =
+  static final MaterialColor primary =
       createMaterialColor(Color.fromRGBO(27, 27, 108, 1));
+  static final MaterialColor secondary =
+      createMaterialColor(Color.fromRGBO(243, 193, 25, 1));
 }
 
 class Sizes {

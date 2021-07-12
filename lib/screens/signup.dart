@@ -58,7 +58,7 @@ class SignUp extends StatelessWidget {
                             icon: Icon(
                               Icons.arrow_forward,
                               size: 24,
-                              color: Theme.of(context).primaryColor,
+                              color: Palette.primary,
                             ),
                             label: Text('Already have an account? ',
                                 style: Theme.of(context).textTheme.subtitle2)),
