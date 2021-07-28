@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spo/shared/utils/theme.dart';
 
 class CustomIconButton extends StatelessWidget {
   final String? iconUrl;
@@ -7,7 +8,7 @@ class CustomIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(Sizes.xs),
       child: Container(
         height: 80.0,
         width: 80.0,

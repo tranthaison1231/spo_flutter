@@ -39,4 +39,22 @@ class Sizes {
 
 const textTheme = TextTheme(
     headline4: TextStyle(
-        fontWeight: FontWeight.bold, color: Colors.black, fontSize: 40));
+        fontWeight: FontWeight.bold, color: Colors.black, fontSize: 40),
+    headline6: TextStyle(
+        fontFamily: 'Poppins-Bold',
+        fontWeight: FontWeight.bold,
+        color: Color.fromRGBO(27, 27, 108, 1),
+        fontSize: 24),
+    subtitle1: TextStyle(
+        fontFamily: 'Poppins-Bold',
+        fontWeight: FontWeight.bold,
+        color: Color.fromRGBO(27, 27, 108, 1),
+        fontSize: 16),
+    subtitle2: TextStyle(
+        fontFamily: 'Poppins-Medium',
+        fontWeight: FontWeight.normal,
+        color: Color.fromRGBO(27, 27, 108, 1),
+        fontSize: 16),
+    bodyText1: TextStyle(
+      color: Color.fromRGBO(27, 27, 108, 1),
+    ));

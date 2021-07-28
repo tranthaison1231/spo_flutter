@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:spo/screens/signup.dart';
+import 'package:spo/navigation.dart';
 import 'package:spo/shared/utils/theme.dart';
 
 void main() {
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignUp(),
+      home: NavigationBar(),
       theme: ThemeData(
           fontFamily: 'Poppins-Regular',
           primarySwatch: Palette.primary,
@@ -22,6 +22,11 @@ class MyApp extends StatelessWidget {
           ),
           bottomAppBarTheme: BottomAppBarTheme(
             shape: CircularNotchedRectangle(),
+          ),
+          bottomSheetTheme: BottomSheetThemeData(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
           ),
           inputDecorationTheme: InputDecorationTheme(
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),

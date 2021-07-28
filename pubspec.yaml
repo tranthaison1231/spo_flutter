@@ -14,6 +14,9 @@ dependencies:
   get: ^4.1.2
   flutter_svg: ^0.22.0
   fluttertoast: ^8.0.7
+  image_picker: ^0.8.2
+  image_cropper: ^1.4.1
+  multi_select_flutter: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -23,7 +26,7 @@ dev_dependencies:
   lints: ^1.0.1
 
 dependency_overrides:
-  args: '2.1.1'
+  args: '2.2.0'
 
 flutter_native_splash:
   color: '#ffffff'
