@@ -25,6 +25,8 @@ class Palette {
       createMaterialColor(Color.fromRGBO(27, 27, 108, 1));
   static final MaterialColor secondary =
       createMaterialColor(Color.fromRGBO(243, 193, 25, 1));
+  static final MaterialColor tertiary =
+      createMaterialColor(Color.fromRGBO(254, 245, 231, 1));
 }
 
 class Sizes {
@@ -40,11 +42,16 @@ class Sizes {
 const textTheme = TextTheme(
     headline4: TextStyle(
         fontWeight: FontWeight.bold, color: Colors.black, fontSize: 40),
-    headline6: TextStyle(
+    headline5: TextStyle(
         fontFamily: 'Poppins-Bold',
         fontWeight: FontWeight.bold,
         color: Color.fromRGBO(27, 27, 108, 1),
         fontSize: 24),
+    headline6: TextStyle(
+        fontFamily: 'Poppins-Bold',
+        fontWeight: FontWeight.bold,
+        color: Color.fromRGBO(27, 27, 108, 1),
+        fontSize: 20),
     subtitle1: TextStyle(
         fontFamily: 'Poppins-Bold',
         fontWeight: FontWeight.bold,
@@ -56,5 +63,16 @@ const textTheme = TextTheme(
         color: Color.fromRGBO(27, 27, 108, 1),
         fontSize: 16),
     bodyText1: TextStyle(
+      color: Color.fromRGBO(27, 27, 108, 1),
+    ),
+    caption: TextStyle(
+      fontSize: 16,
+      letterSpacing: 0.32,
+      color: Color.fromRGBO(170, 172, 174, 1),
+    ),
+    button: TextStyle(
+      fontSize: 14,
+      fontFamily: 'Poppins-Bold',
+      fontWeight: FontWeight.bold,
       color: Color.fromRGBO(27, 27, 108, 1),
     ));

@@ -17,7 +17,7 @@ class News extends StatelessWidget {
             Center(
               child: Text(
                 'News',
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.headline5,
               ),
             ),
             Height(64),
@@ -156,7 +156,7 @@ class News extends StatelessWidget {
               items: ['Male', 'Female']
                   .map((gender) => DropdownMenuItem(
                         value: gender,
-                        child: Text('$gender'),
+                        child: Text(gender),
                       ))
                   .toList(),
             ),

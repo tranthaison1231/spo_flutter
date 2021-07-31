@@ -12,7 +12,7 @@ class Post extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(Sizes.lg),
+        padding: EdgeInsets.all(Sizes.lg),
         child: Column(
           children: [
             Row(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spo/screens/user_info/user_info.dart';
 import 'package:spo/screens/events.dart';
-import 'package:spo/screens/home.dart';
+import 'package:spo/screens/home/home.dart';
 import 'package:spo/screens/News/news.dart';
 import 'package:spo/shared/utils/theme.dart';
 
