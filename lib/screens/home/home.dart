@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spo/screens/home/city_selector.dart';
 import 'package:spo/screens/home/events.dart';
 import 'package:spo/screens/home/place_list.dart';
 
@@ -11,7 +12,7 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         leading: Padding(
           padding: EdgeInsets.only(left: 32),
-          child: IconButton(icon: Icon(Icons.notifications), onPressed: () {}),
+          child: CitySelector(),
         ),
         actions: [
           Padding(

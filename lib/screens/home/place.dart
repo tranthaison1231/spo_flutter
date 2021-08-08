@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spo/shared/components/sized_box.dart';
+import 'package:spo/shared/utils/theme.dart';
 
 class Place extends StatelessWidget {
   const Place({
@@ -33,14 +34,34 @@ class Place extends StatelessWidget {
                   Height(8),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [Text('Đang mở'), Text('Đà Nẵng')]),
+                      children: [
+                        Text('Đang mở', style: TextStyle(color: Colors.green)),
+                        Text('Đà Nẵng')
+                      ]),
                   Height(8),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Đang mở'),
+                        Container(
+                            padding: EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: Palette.secondary,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.star,
+                                  size: 20,
+                                  color: Colors.white,
+                                ),
+                                Width(8),
+                                Text('4.5',
+                                    style: TextStyle(color: Colors.white)),
+                              ],
+                            )),
                         Text('1.5 Km'),
-                        Text('-10%')
+                        Text('-10%', style: TextStyle(color: Colors.red))
                       ]),
                 ],
               )),

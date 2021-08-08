@@ -31,6 +31,7 @@ class PlaceList extends StatelessWidget {
                 ],
               ),
             ),
+            Height(24),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   primary: Palette.tertiary,

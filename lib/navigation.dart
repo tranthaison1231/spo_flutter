@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:spo/screens/create_place.dart';
 import 'package:spo/screens/user_info/user_info.dart';
-import 'package:spo/screens/events.dart';
 import 'package:spo/screens/home/home.dart';
 import 'package:spo/screens/News/news.dart';
 import 'package:spo/shared/utils/theme.dart';
@@ -54,7 +55,7 @@ class _NavigationBarState extends State<NavigationBar> {
                     tab: 2,
                     icon: Icons.calendar_today,
                     minWidth: 40,
-                    screen: Events(),
+                    screen: CreatePlace(),
                   ),
                   buildNavbarItem(
                     tab: 3,
@@ -67,9 +68,41 @@ class _NavigationBarState extends State<NavigationBar> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {},
+      floatingActionButton: SpeedDial(
+        icon: Icons.add,
+        activeIcon: Icons.close,
+        backgroundColor: Palette.secondary,
+        activeBackgroundColor: Colors.grey,
+        children: [
+          SpeedDialChild(
+            child: Icon(Icons.person),
+            backgroundColor: Palette.primary,
+            foregroundColor: Colors.white,
+            label: 'Người chơi',
+            onTap: () {},
+          ),
+          SpeedDialChild(
+            child: Icon(Icons.people),
+            backgroundColor: Colors.red,
+            foregroundColor: Colors.white,
+            label: 'Tạo nhóm',
+            onTap: () {},
+          ),
+          SpeedDialChild(
+            child: Icon(Icons.sports_soccer),
+            backgroundColor: Colors.green,
+            foregroundColor: Colors.white,
+            label: 'Tạo sân',
+            onTap: () {},
+          ),
+          SpeedDialChild(
+            child: Icon(Icons.event),
+            backgroundColor: Palette.secondary,
+            foregroundColor: Colors.white,
+            label: 'Tạo event',
+            onTap: () {},
+          ),
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
