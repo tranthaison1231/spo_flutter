@@ -1,6 +1,8 @@
+import 'package:amplify_flutter/amplify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
+import 'package:spo/navigation.dart';
 import 'package:spo/screens/fogot_password.dart';
 import 'package:spo/shared/components/sized_box.dart';
 import 'package:spo/shared/components/social_button.dart';
@@ -11,6 +13,22 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void onLogin() async {
+      try {
+        final form = _formKey.currentState;
+        FocusScopeNode currentFocus = FocusScope.of(context);
+        if (form!.saveAndValidate()) {
+          await Amplify.Auth.signIn(
+              username: form.value['email'] as String,
+              password: form.value['password'] as String);
+          currentFocus.unfocus();
+          Get.to(NavigationBar());
+        }
+      } catch (error) {
+        Get.snackbar('Error', error.toString());
+      }
+    }
+
     return Scaffold(
       body: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
@@ -62,15 +80,7 @@ class Login extends StatelessWidget {
                           ),
                           Height(28),
                           ElevatedButton(
-                            onPressed: () {
-                              _formKey.currentState!.save();
-                              FocusScopeNode currentFocus =
-                                  FocusScope.of(context);
-                              if (_formKey.currentState!.validate()) {
-                                print(_formKey.currentState!.value);
-                                currentFocus.unfocus();
-                              }
-                            },
+                            onPressed: onLogin,
                             child: Text("LOGIN"),
                           ),
                         ],

@@ -5,8 +5,9 @@ import 'package:flutter_config/flutter_config.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/route_manager.dart';
+import 'package:spo/amplifyconfiguration.dart';
 import 'package:spo/l10n/l10n.dart';
-import 'package:spo/navigation.dart';
+import 'package:spo/screens/signup.dart';
 import 'package:spo/shared/utils/theme.dart';
 
 void main() async {
@@ -22,10 +23,9 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   bool _amplifyConfigured = false;
-
   Future<void> _configureAmplify() async {
     await Amplify.addPlugins([AmplifyAuthCognito()]);
-    // await Amplify.configure('${FlutterConfig.get('FABRIC_ID')}');
+    await Amplify.configure(amplifyconfig);
     setState(() {
       _amplifyConfigured = true;
     });
@@ -49,7 +49,7 @@ class _AppState extends State<App> {
         GlobalWidgetsLocalizations.delegate,
       ],
       debugShowCheckedModeBanner: false,
-      home: _amplifyConfigured ? NavigationBar() : Text('Loading'),
+      home: _amplifyConfigured ? SignUp() : Text("Loading"),
       theme: theme,
       darkTheme: ThemeData.dark().copyWith(),
     );

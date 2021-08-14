@@ -1,3 +1,4 @@
+import 'package:amplify_flutter/amplify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:spo/screens/login.dart';
@@ -11,6 +12,22 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void onSignUp() async {
+      try {
+        final form = _formKey.currentState;
+        FocusScopeNode currentFocus = FocusScope.of(context);
+        if (form!.saveAndValidate()) {
+          await Amplify.Auth.signUp(
+              username: form.value['email'] as String,
+              password: form.value['password'] as String);
+          currentFocus.unfocus();
+          Get.to(Login());
+        }
+      } catch (error) {
+        Get.snackbar('Error', error.toString());
+      }
+    }
+
     return Scaffold(
         body: SingleChildScrollView(
       child: SafeArea(
@@ -20,6 +37,7 @@ class SignUp extends StatelessWidget {
               children: [
                 FormBuilder(
                   key: _formKey,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -65,14 +83,7 @@ class SignUp extends StatelessWidget {
                       ),
                       Height(28),
                       ElevatedButton(
-                        onPressed: () {
-                          _formKey.currentState!.save();
-                          FocusScopeNode currentFocus = FocusScope.of(context);
-                          if (_formKey.currentState!.validate()) {
-                            print(_formKey.currentState!.value);
-                            currentFocus.unfocus();
-                          }
-                        },
+                        onPressed: onSignUp,
                         child: Text("SIGN UP"),
                       ),
                     ],
