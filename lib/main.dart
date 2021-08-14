@@ -1,3 +1,5 @@
+import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
+import 'package:amplify_flutter/amplify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_config/flutter_config.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -10,10 +12,31 @@ import 'package:spo/shared/utils/theme.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await FlutterConfig.loadEnvVariables();
-  runApp(MyApp());
+  runApp(App());
 }
 
-class MyApp extends StatelessWidget {
+class App extends StatefulWidget {
+  @override
+  _AppState createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  bool _amplifyConfigured = false;
+
+  Future<void> _configureAmplify() async {
+    await Amplify.addPlugins([AmplifyAuthCognito()]);
+    // await Amplify.configure('${FlutterConfig.get('FABRIC_ID')}');
+    setState(() {
+      _amplifyConfigured = true;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _configureAmplify();
+  }
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -26,36 +49,8 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
       ],
       debugShowCheckedModeBanner: false,
-      home: NavigationBar(),
-      theme: ThemeData(
-          fontFamily: 'Poppins-Regular',
-          primarySwatch: Palette.primary,
-          textTheme: textTheme,
-          appBarTheme: AppBarTheme(
-            backgroundColor: Palette.secondary,
-          ),
-          floatingActionButtonTheme: FloatingActionButtonThemeData(
-            backgroundColor: Palette.secondary,
-          ),
-          bottomAppBarTheme: BottomAppBarTheme(
-            shape: CircularNotchedRectangle(),
-          ),
-          bottomSheetTheme: BottomSheetThemeData(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ),
-          ),
-          inputDecorationTheme: InputDecorationTheme(
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
-          ),
-          elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
-              ),
-              minimumSize: Size(double.infinity, 48),
-            ),
-          )),
+      home: _amplifyConfigured ? NavigationBar() : Text('Loading'),
+      theme: theme,
       darkTheme: ThemeData.dark().copyWith(),
     );
   }

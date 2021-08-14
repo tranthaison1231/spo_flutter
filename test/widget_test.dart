@@ -3,7 +3,7 @@ import 'package:spo/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(App());
     expect(find.text('1'), findsNothing);
   });
 }

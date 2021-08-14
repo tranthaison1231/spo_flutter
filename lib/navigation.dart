@@ -15,7 +15,7 @@ class NavigationBar extends StatefulWidget {
 
 class _NavigationBarState extends State<NavigationBar> {
   int currentTab = 0;
-  Widget currentScreen = UserInfo();
+  Widget currentScreen = Home();
   final PageStorageBucket bucket = PageStorageBucket();
 
   @override

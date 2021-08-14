@@ -76,3 +76,33 @@ const textTheme = TextTheme(
       fontWeight: FontWeight.bold,
       color: Color.fromRGBO(27, 27, 108, 1),
     ));
+
+final theme = ThemeData(
+    fontFamily: 'Poppins-Regular',
+    primarySwatch: Palette.primary,
+    textTheme: textTheme,
+    appBarTheme: AppBarTheme(
+      backgroundColor: Palette.secondary,
+    ),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: Palette.secondary,
+    ),
+    bottomAppBarTheme: BottomAppBarTheme(
+      shape: CircularNotchedRectangle(),
+    ),
+    bottomSheetTheme: BottomSheetThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        minimumSize: Size(double.infinity, 48),
+      ),
+    ));
