@@ -3,15 +3,18 @@ import 'package:flutter_config/flutter_config.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/route_manager.dart';
+import 'package:spo/controllers/auth_controller.dart';
 import 'package:spo/l10n/l10n.dart';
 import 'package:spo/screens/login.dart';
 import 'package:spo/services/amplify_service.dart';
 import 'package:spo/shared/components/loading.dart';
 import 'package:spo/shared/utils/theme.dart';
+import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await FlutterConfig.loadEnvVariables();
+  Get.put<AuthController>(AuthController());
   runApp(App());
 }
 

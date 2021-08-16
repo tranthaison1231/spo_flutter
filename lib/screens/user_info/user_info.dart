@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spo/controllers/auth_controller.dart';
 import 'package:spo/screens/user_info/card_info.dart';
 import 'package:spo/shared/components/custom_button.dart';
 import 'package:spo/shared/components/sized_box.dart';
@@ -9,6 +10,7 @@ class UserInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AuthController authController = AuthController.to;
     return Scaffold(
       backgroundColor: Palette.primary,
       body: SafeArea(
@@ -80,6 +82,7 @@ class UserInfo extends StatelessWidget {
                           ),
                           Height(32),
                           CustomButton(
+                            onPressed: () {},
                             prefix: Icon(
                               Icons.people,
                               color: Palette.secondary,
@@ -88,6 +91,7 @@ class UserInfo extends StatelessWidget {
                           ),
                           Height(16),
                           CustomButton(
+                            onPressed: () {},
                             prefix: Icon(
                               Icons.history,
                               color: Palette.secondary,
@@ -96,6 +100,7 @@ class UserInfo extends StatelessWidget {
                           ),
                           Height(16),
                           CustomButton(
+                            onPressed: () {},
                             prefix: Icon(
                               Icons.settings,
                               color: Palette.secondary,
@@ -104,6 +109,9 @@ class UserInfo extends StatelessWidget {
                           ),
                           Height(45),
                           CustomButton(
+                            onPressed: () {
+                              authController.signOut();
+                            },
                             prefix: Icon(
                               Icons.exit_to_app,
                               color: Colors.red,

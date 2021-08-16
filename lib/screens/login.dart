@@ -2,6 +2,7 @@ import 'package:amplify_flutter/amplify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
+import 'package:spo/controllers/auth_controller.dart';
 import 'package:spo/navigation.dart';
 import 'package:spo/screens/fogot_password.dart';
 import 'package:spo/shared/components/sized_box.dart';
@@ -9,26 +10,17 @@ import 'package:spo/shared/components/social_button.dart';
 import 'package:spo/shared/utils/theme.dart';
 
 class Login extends StatelessWidget {
+  final AuthController authController = AuthController.to;
   final GlobalKey<FormBuilderState> _formKey = GlobalKey<FormBuilderState>();
 
   @override
   Widget build(BuildContext context) {
     void onLogin() async {
-      try {
-        final form = _formKey.currentState;
-        FocusScopeNode currentFocus = FocusScope.of(context);
-        if (form!.saveAndValidate()) {
-          final result = await Amplify.Auth.signIn(
-              username: form.value['email'] as String,
-              password: form.value['password'] as String);
-          if (!result.isSignedIn) throw Exception('Login failed');
-          final user = await Amplify.Auth.getCurrentUser();
-          print(user);
-          currentFocus.unfocus();
-          Get.to(NavigationBar());
-        }
-      } catch (error) {
-        Get.snackbar('Error', error.toString());
+      final form = _formKey.currentState;
+      if (form!.saveAndValidate()) {
+        authController.signIn(
+            email: form.value['email'] as String,
+            password: form.value['password'] as String);
       }
     }
 
