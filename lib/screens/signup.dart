@@ -1,3 +1,4 @@
+import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_flutter/amplify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -19,7 +20,9 @@ class SignUp extends StatelessWidget {
         if (form!.saveAndValidate()) {
           await Amplify.Auth.signUp(
               username: form.value['email'] as String,
-              password: form.value['password'] as String);
+              password: form.value['password'] as String,
+              options: CognitoSignUpOptions(
+                  userAttributes: {'fullName': form.value['name'] as String}));
           currentFocus.unfocus();
           Get.to(Login());
         }

@@ -16,6 +16,7 @@ dependencies:
   cupertino_icons: ^1.0.3
   supabase: ^0.2.1
   flutter_form_builder: ^6.0.1
+  shared_preferences: ^2.0.6
   get: ^4.3.8
   flutter_speed_dial: ^4.2.0
   flutter_svg: ^0.22.0

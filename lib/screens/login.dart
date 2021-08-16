@@ -18,9 +18,12 @@ class Login extends StatelessWidget {
         final form = _formKey.currentState;
         FocusScopeNode currentFocus = FocusScope.of(context);
         if (form!.saveAndValidate()) {
-          await Amplify.Auth.signIn(
+          final result = await Amplify.Auth.signIn(
               username: form.value['email'] as String,
               password: form.value['password'] as String);
+          if (!result.isSignedIn) throw Exception('Login failed');
+          final user = await Amplify.Auth.getCurrentUser();
+          print(user);
           currentFocus.unfocus();
           Get.to(NavigationBar());
         }
